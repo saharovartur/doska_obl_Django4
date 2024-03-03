@@ -2,12 +2,14 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Bb, Rubric
 
+#Функция главной страницы с объявлениями.
 def index(request):
     bbs = Bb.objects.all()
     rubrics = Rubric.objects.all()
     context = {'bbs': bbs, 'rubrics': rubrics}
     return render(request, 'bboard/index.html', context)
 
+#Функция страниц с разделением на рубрики.
 def rubric_bbs(request, rubric_id):
     bbs = Bb.objects.filter(rubric_id=rubric_id)
     rubrics = Rubric.objects.all()

@@ -28,7 +28,7 @@ def rubric_bbs(request, rubric_id):
 
 #
 class BbCreateView(CreateView):
-    """Класс для обработки формы BbForm"""
+    """Класс для обработки формы BbForm."""
     template_name = 'bboard/bb_create.html'
     form_class = BbForm
     success_url = '/bboard/'

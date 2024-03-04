@@ -26,7 +26,7 @@ def rubric_bbs(request, rubric_id):
                'current_rubric': current_rubric}
     return render(request, 'bboard/rubric_bbs.html', context)
 
-#
+
 class BbCreateView(CreateView):
     """Класс для обработки формы BbForm."""
     template_name = 'bboard/bb_create.html'
@@ -37,7 +37,7 @@ class BbCreateView(CreateView):
         """Переопределим метод из род.класса для вывода
          на странице формы  - списка рубрик"""
         context = super().get_context_data(**kwargs)
-        context['rubrics'] = Rubric.objects.all()
+        context['rubrics'] = Rubric.objects.all() #ключ-значение
         return context
 
 

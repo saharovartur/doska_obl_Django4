@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Bb, Rubric
 from django.views.generic.edit import CreateView
 from.forms import BbForm
+from django.urls import reverse_lazy
 
 
 #Функция главной страницы с объявлениями.
@@ -31,7 +32,7 @@ class BbCreateView(CreateView):
     """Класс для обработки формы BbForm."""
     template_name = 'bboard/bb_create.html'
     form_class = BbForm
-    success_url = '/bboard/'
+    success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
         """Переопределим метод из род.класса для вывода
